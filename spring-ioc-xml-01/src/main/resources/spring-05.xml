@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- FactoryBean机制 -->
+    <!-- 这个bean标签中class属性指定的是MyBeanFactoryBean，但是将来从这里获取的bean是getObject中返回的对象 -->
+    <!--getObject() 返回变量名作为bean id, 其实该对象是FactoryBean对象，属性是为FactoryBean赋值的；
+    但是根据id拿到的是getObj中对象；想要拿到FactoryBean需要id前+&符号才行-->
+    <!--先生成FactoryBean，再生成我需要的getObj自定义的bean。-->
+    <bean id="myBeanTest" class="com.atguigu.ioc_05.MyBeanFactoryBean">
+        <!-- property标签仍然可以用来通过setXxx()方法给属性赋值 -->
+        <property name="intValue" value="28"/>
+        <property name="strValue" value="allen"/>
+    </bean>
+</beans>
