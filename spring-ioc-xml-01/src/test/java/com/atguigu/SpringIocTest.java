@@ -54,4 +54,19 @@ public class SpringIocTest {
         System.out.println(bean.getClass());
 
     }
+
+    @Test
+    public void testException(){
+        try {
+            Thread.sleep(4000);
+            int i = 1/0;
+        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+            e.printStackTrace();
+        } catch (Exception e){
+            System.out.println("wrong divide");
+            throw new RuntimeException();
+        }
+        System.out.println(1111111111);
+    }
 }
